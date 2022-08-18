@@ -1,54 +1,75 @@
-const new_list = document.querySelector("#new-list-form");
-const input_list = document.querySelector("#new-list-input");
-const container_list = document.querySelector("#container-list");
-const submit_list = document.querySelector("#new-list-submit")
+const submit_task = document.querySelector(".submit");
+const input_task = document.querySelector("#new-task-input");
+const container = document.querySelector(".container");
 
-submit_list.addEventListener('click', (e) => {
+
+submit_task.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const user_input = input_list.value;
 
-    const cont_list = document.createElement('div');
-    cont_list.classList.add('cont-list')
+    const user_input = input_task.value;
 
-    const list_input_element = document.createElement('input');
-    list_input_element.classList.add('list_input');
-    list_input_element.type = 'text';
-    list_input_element.value = user_input;
-    list_input_element.setAttribute('readonly', 'readonly');
+    const container_task = document.createElement('div');
+    container_task.classList.add('container-task')
 
-    cont_list.appendChild(list_input_element);
+    const box = document.createElement('form');
+    box.classList.add('box');
+    const task = document.createElement('form');
+    task.classList.add('task');
+    const container_button = document.createElement('div');
+    container_button.classList.add('container-button');
 
-    const cont_button = document.createElement('div');
-    cont_button.classList.add('container-button');
+    container_task.appendChild(box);
+    container_task.appendChild(task);
+    container_task.appendChild(container_button);
 
+    const input_element = document.createElement('input');
+    input_element.setAttribute("id", "new-task-input");
+    input_element.type = 'text';
+    input_element.value = user_input;
+    input_element.setAttribute('readonly', 'readonly');
+
+    task.appendChild(input_element);
 
     const button_edit = document.createElement('button');
     button_edit.classList.add('edit');
     button_edit.innerText = 'Edit';
+    button_edit.setAttribute("hidden", "hidden");
 
     const button_delete = document.createElement('button');
     button_delete.classList.add('delete');
     button_delete.innerText = 'Delete';
+    button_delete.setAttribute("hidden", "hidden");
 
-    cont_button.appendChild(button_edit);
-    cont_button.appendChild(button_delete);
-    cont_list.appendChild(cont_button)
-    container_list.appendChild(cont_list);
+    container_button.appendChild(button_edit);
+    container_button.appendChild(button_delete);
 
-    input_list.value = '';
+    container.appendChild(container_task);
+
+    input_task.value = '';
+
+    container_task.addEventListener('mouseover', (e) => {
+        button_delete.removeAttribute("hidden");
+        button_edit.removeAttribute("hidden");
+    })
+
+    container_task.addEventListener('mouseout', (e) => {
+        button_delete.setAttribute("hidden", "hidden");
+        button_edit.setAttribute("hidden", "hidden");
+    })
+
     button_edit.addEventListener('click', (e) => {
         if (button_edit.innerText.toLowerCase() == "edit") {
             button_edit.innerText = "Save";
-            list_input_element.removeAttribute("readonly", "readonly");
-            list_input_element.focus();
+            input_element.removeAttribute("readonly");
+            input_element.focus();
         } else {
             button_edit.innerText = "Edit";
-            button_edit.setAttribute("readonly", "readonly");
+            input_element.setAttribute("readonly", "readonly");
         }
     })
 
     button_delete.addEventListener('click', (e) => {
-        container_list.removeChild(cont_list);
+        container.removeChild(container_task);
     })
 })
