@@ -4,30 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/to_do_list.css">
+    <title>To Do List with ayang</title>
 </head>
 
 <body>
+    <!-- side kiri -->
+    <aside>
 
-    <header>
-        <h1>To Do List</h1>
-        <form id="new-list-form">
-            <input type="text" id="new-list-input" placeholder="Apa yang ingin kamu lakukan?">
-            <button id="new-list-submit">Tambah</button>
-            <!-- <input type="submit" id="new-list-submit" value="TAMBAH"> -->
-        </form>
-    </header>
+        <!-- profil user -->
+        <div class="profile">
+            <div class="foto">
+                <img src="image/profile.png" alt="FOTO">
+            </div>
+            <div class="profil-data">
+                <h1>Rian Budiyanto's</h1>
+                <p>Personal notes</p>
+            </div>
+        </div>
+
+        <!-- setting, fav, dan notes -->
+        <nav>
+            <!-- setting -->
+            <div class="setting">
+                <img src="image/setting.png" alt="">
+                <h2 class="uppercase">Setting</h2>
+            </div>
+
+            <!-- favorite -->
+            <div class="favorite">
+                <div class="fav-head">
+                    <img src="image/star.png" alt="">
+                    <h2 class="uppercase">Favorites</h2>
+                </div>
+                <div class="fav-body">
+                    <p>New Favorites</p>
+                </div>
+            </div>
+
+            <!-- notes -->
+            <div class="notes">
+                <div class="notes-head">
+                    <img src="image/notes.png" alt="">
+                    <h2 class="uppercase">Notes</h2>
+                </div>
+                <div class="notes-body">
+                    <p>New Notes</p>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- main body -->
     <main>
-        <section class="daftar">
-            <h2>Daftar</h2>
-            <div id="container-list"></div>
+        <section class="head">
+            <div class="head-menu">
+                <div class="title">
+                    <h1 class="uppercase">To do list</h1>
+                </div>
+                <div class="add">
+                    <p>Add Teks</p>
+                    <p>Add Favorite</p>
+                </div>
+            </div>
+            <div class="garis"></div>
         </section>
+
+        <section class="list">
+            <div class="container">
+                <div class="container-task">
+                    <div class="box"></div>
+                    <form class="task">
+                        <input type="text" id="new-task-input" placeholder="What's your plan?">
+                    </form>
+                    <div class="container-button">
+                        <button class="submit">Submit</button>
+                        <!-- <button class="edit">Edit</button>
+                        <button class="delete">Delete</button> -->
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
-    <script src="js/main.js"></script>
+    <script src="js/uwu.js"></script>
 </body>
 
 </html>
